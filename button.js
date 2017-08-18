@@ -3,8 +3,12 @@
 // Potentially just emit an event if you need it.
 
 var five = require("johnny-five");
+var pixel = require("node-pixel");
 
-var board = new five.Board();
+var opts = {};
+opts.port = process.argv[2] || "";
+
+var board = new five.Board(opts);
 
 board.on("ready", function() {
 
@@ -21,14 +25,50 @@ board.on("ready", function() {
 
     button.on("press", function() {
         console.log("pressed");
+        strip = new pixel.Strip({
+            data: 13,
+            length: 2,
+            board: board,
+            controller: "FIRMATA",
+        });
+
+        strip.on("ready", function() {
+            strip.color("#000000");
+            strip.show();
+        });
+
     });
 
     button.on("release", function() {
         console.log("released");
+        strip = new pixel.Strip({
+            data: 13,
+            length: 2,
+            board: board,
+            controller: "FIRMATA",
+        });
+
+        strip.on("ready", function() {
+            strip.color("#006400");
+            strip.show();
+        });
+
     });
 
     button.on("hold", function() {
         console.log("held");
+        strip = new pixel.Strip({
+            data: 13,
+            length: 2,
+            board: board,
+            controller: "FIRMATA",
+        });
+
+        strip.on("ready", function() {
+            strip.color("#000064");
+            strip.show();
+        });
+
     });
 
 });
