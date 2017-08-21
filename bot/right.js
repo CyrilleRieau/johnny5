@@ -1,6 +1,8 @@
-function moveRight() {
-    const five = require("johnny-five");
-    var board = new five.Board({ port: process.argv[2] });
+const five = require("johnny-five");
+
+
+module.exports = function moveRight() {
+    var board = new five.Board();
     var l_motor = r_motor = null;
     board.on("ready", function(err) {
 
@@ -10,5 +12,4 @@ function moveRight() {
         r_motor.reverse(160);
         l_motor.reverse(160);
     });
-}
-module.exports = moveRight;
+};

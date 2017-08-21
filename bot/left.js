@@ -1,8 +1,9 @@
-function moveLeft() {
-    const five = require("johnny-five");
-    var board = new five.Board({ port: process.argv[2] });
-    var l_motor = r_motor = null;
+const five = require("johnny-five");
 
+
+module.exports = function moveLeft() {
+    var board = new five.Board();
+    var l_motor = r_motor = null;
     board.on("ready", function(err) {
 
         l_motor = new five.Motor({ pins: { pwm: 6, dir: 7 } });
@@ -11,5 +12,4 @@ function moveLeft() {
         l_motor.forward(160);
         r_motor.forward(160);
     });
-}
-module.exports = moveLeft;
+};

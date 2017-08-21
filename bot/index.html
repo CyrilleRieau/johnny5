@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="bot.js"></script>
-
-    <title>Document</title>
+    <title>Bot</title>
 
 </head>
 
@@ -23,12 +21,13 @@
     let up = (document.querySelector("#up")).addEventListener("click", function(e) {
         e.preventDefault();
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://localhost:8080/johnny5/bot.js', true);
+        xhr.open('GET', 'bot/up', true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     console.log(xhr.response);
-                    moveUp();
+                    xhr.up;
+                    //Rajouter fonctions d'arrêts
                 } else {
                     console.error('unexpected status code:', this.status)
                 }
@@ -40,12 +39,12 @@
     let down = (document.querySelector("#down")).addEventListener("click", function(e) {
         e.preventDefault();
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://localhost:8080/johnny5/bot.js', true);
+        xhr.open('GET', 'bot/down', true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     console.log(xhr.response);
-                    xhr.response.moveDown;
+                    xhr.down;
                 } else {
                     console.error('unexpected status code:', this.status)
                 }
@@ -57,12 +56,12 @@
     let left = (document.querySelector("#left")).addEventListener("click", function(e) {
         e.preventDefault();
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://localhost:8080/johnny5/bot.js', true);
+        xhr.open('GET', 'bot/left', true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     console.log(xhr.response);
-                    xhr.response.moveLeft;
+                    xhr.left;
                 } else {
                     console.error('unexpected status code:', this.status)
                 }
@@ -74,12 +73,12 @@
     let right = (document.querySelector("#right")).addEventListener("click", function(e) {
         e.preventDefault();
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://localhost:8080/johnny5/bot.js', true);
+        xhr.open('GET', 'bot/right', true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     console.log(xhr.response);
-                    xhr.response.moveRight;
+                    xhr.right;
                 } else {
                     console.error('unexpected status code:', this.status)
                 }
@@ -91,12 +90,12 @@
     let stop = (document.querySelector("#stop")).addEventListener("click", function(e) {
         e.preventDefault();
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://localhost:8080/johnny5/bot.js', true);
+        xhr.open('GET', 'bot/stop', true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     console.log(xhr.response);
-                    xhr.response.stop;
+                    xhr.stop;
                 } else {
                     console.error('unexpected status code:', this.status)
                 }
