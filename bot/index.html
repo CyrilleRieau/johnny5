@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="bot.js"></script>
+
+    <title>Document</title>
+
+</head>
+
+<body>
+    <button id="up">Up</button>
+    <button id="right">Right</button>
+    <button id="left">Left</button>
+    <button id="down">Down</button>
+    <button id="stop">Stop</button>
+</body>
+
+<script>
+    let up = (document.querySelector("#up")).addEventListener("click", function(e) {
+        e.preventDefault();
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://localhost:8080/johnny5/bot.js', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    console.log(xhr.response);
+                    moveUp();
+                } else {
+                    console.error('unexpected status code:', this.status)
+                }
+            }
+        };
+        xhr.send(null);
+    });
+
+    let down = (document.querySelector("#down")).addEventListener("click", function(e) {
+        e.preventDefault();
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://localhost:8080/johnny5/bot.js', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    console.log(xhr.response);
+                    xhr.response.moveDown;
+                } else {
+                    console.error('unexpected status code:', this.status)
+                }
+            }
+        };
+        xhr.send(null);
+    });
+
+    let left = (document.querySelector("#left")).addEventListener("click", function(e) {
+        e.preventDefault();
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://localhost:8080/johnny5/bot.js', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    console.log(xhr.response);
+                    xhr.response.moveLeft;
+                } else {
+                    console.error('unexpected status code:', this.status)
+                }
+            }
+        };
+        xhr.send(null);
+    });
+
+    let right = (document.querySelector("#right")).addEventListener("click", function(e) {
+        e.preventDefault();
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://localhost:8080/johnny5/bot.js', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    console.log(xhr.response);
+                    xhr.response.moveRight;
+                } else {
+                    console.error('unexpected status code:', this.status)
+                }
+            }
+        };
+        xhr.send(null);
+    });
+
+    let stop = (document.querySelector("#stop")).addEventListener("click", function(e) {
+        e.preventDefault();
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://localhost:8080/johnny5/bot.js', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    console.log(xhr.response);
+                    xhr.response.stop;
+                } else {
+                    console.error('unexpected status code:', this.status)
+                }
+            }
+        };
+        xhr.send(null);
+    });
+    // });
+</script>
+
+
+</html>
