@@ -18,18 +18,26 @@
 </body>
 
 <script>
+    /* let Robot = {
+                                                        active: false
+                                                    }*/
+
+    //    console.log(Robot.active);
+
+    //  if (Robot.active == false) {
     let up = (document.querySelector("#up")).addEventListener("click", function(e) {
         e.preventDefault();
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', 'bot/up', true);
+        xhr.open('GET', './bot/up', true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     console.log(xhr.response);
-                    xhr.up;
-                    //Rajouter fonctions d'arrêts
+                    xhr.moveForward;
+                    console.log('Yop');
+                    //                   Robot.active = true;
                 } else {
-                    console.error('unexpected status code:', this.status)
+                    console.error('unexpected status code:', this.status);
                 }
             }
         };
@@ -44,7 +52,8 @@
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     console.log(xhr.response);
-                    xhr.down;
+                    xhr.moveDown;
+                    //                 Robot.active = true;
                 } else {
                     console.error('unexpected status code:', this.status)
                 }
@@ -61,7 +70,8 @@
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     console.log(xhr.response);
-                    xhr.left;
+                    xhr.moveLeft;
+                    //               Robot.active = true;
                 } else {
                     console.error('unexpected status code:', this.status)
                 }
@@ -78,7 +88,8 @@
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     console.log(xhr.response);
-                    xhr.right;
+                    xhr.moveRight;
+                    //             Robot.active = true;
                 } else {
                     console.error('unexpected status code:', this.status)
                 }
@@ -86,7 +97,6 @@
         };
         xhr.send(null);
     });
-
     let stop = (document.querySelector("#stop")).addEventListener("click", function(e) {
         e.preventDefault();
         let xhr = new XMLHttpRequest();
@@ -96,6 +106,7 @@
                 if (xhr.status === 200) {
                     console.log(xhr.response);
                     xhr.stop;
+                    //           Robot.active = true;
                 } else {
                     console.error('unexpected status code:', this.status)
                 }
@@ -103,7 +114,99 @@
         };
         xhr.send(null);
     });
-    // });
+    /* }
+     if (Robot.active == true) {
+         let up = (document.querySelector("#up")).addEventListener("click", function(e) {
+             e.preventDefault();
+
+             let xhr = new XMLHttpRequest();
+             xhr.open('GET', 'bot/up', true);
+             xhr.onreadystatechange = function() {
+                 if (xhr.readyState === XMLHttpRequest.DONE) {
+                     if (xhr.status === 200) {
+                         console.log(xhr.response);
+                         xhr.up;
+                         Robot.active = false;
+                     } else {
+                         console.error('unexpected status code:', this.status)
+                     }
+                 }
+             };
+             xhr.send(null);
+         });
+
+         let down = (document.querySelector("#down")).addEventListener("click", function(e) {
+             e.preventDefault();
+             let xhr = new XMLHttpRequest();
+             xhr.open('GET', 'bot/down', true);
+             xhr.onreadystatechange = function() {
+                 if (xhr.readyState === XMLHttpRequest.DONE) {
+                     if (xhr.status === 200) {
+                         console.log(xhr.response);
+                         xhr.down;
+                         Robot.active = false;
+                     } else {
+                         console.error('unexpected status code:', this.status)
+                     }
+                 }
+             };
+             xhr.send(null);
+         });
+
+         let left = (document.querySelector("#left")).addEventListener("click", function(e) {
+             e.preventDefault();
+             let xhr = new XMLHttpRequest();
+             xhr.open('GET', 'bot/left', true);
+             xhr.onreadystatechange = function() {
+                 if (xhr.readyState === XMLHttpRequest.DONE) {
+                     if (xhr.status === 200) {
+                         console.log(xhr.response);
+                         xhr.left;
+                         Robot.active = false;
+                     } else {
+                         console.error('unexpected status code:', this.status)
+                     }
+                 }
+             };
+             xhr.send(null);
+         });
+
+         let right = (document.querySelector("#right")).addEventListener("click", function(e) {
+             e.preventDefault();
+             let xhr = new XMLHttpRequest();
+             xhr.open('GET', 'bot/right', true);
+             xhr.onreadystatechange = function() {
+                 if (xhr.readyState === XMLHttpRequest.DONE) {
+                     if (xhr.status === 200) {
+                         console.log(xhr.response);
+                         xhr.right;
+                         Robot.active = false;
+                     } else {
+                         console.error('unexpected status code:', this.status)
+                     }
+                 }
+             };
+             xhr.send(null);
+         });
+         let stop = (document.querySelector("#stop")).addEventListener("click", function(e) {
+             e.preventDefault();
+             let xhr = new XMLHttpRequest();
+             xhr.open('GET', 'bot/stop', true);
+             xhr.onreadystatechange = function() {
+                 if (xhr.readyState === XMLHttpRequest.DONE) {
+                     if (xhr.status === 200) {
+                         console.log(xhr.response);
+                         xhr.stop;
+                         Robot.active = false;
+                     } else {
+                         console.error('unexpected status code:', this.status)
+                     }
+                 }
+             };
+             xhr.send(null);
+         });
+     }
+     // });*/
 </script>
 
 

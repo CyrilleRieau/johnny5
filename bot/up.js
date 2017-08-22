@@ -1,4 +1,7 @@
 const five = require("johnny-five");
+//let Robot = require('./Robot.js');
+//let robot = new Robot();
+
 module.exports = function moveUp() {
     var board = new five.Board();
     var l_motor = r_motor = null;
@@ -10,5 +13,8 @@ module.exports = function moveUp() {
 
         l_motor.reverse(160);
         r_motor.forward(160);
+
+        //        robot.active = true;
+
     });
 };
